@@ -22,7 +22,7 @@ function App() {
 			<RiskProvider>
 				<Navbar />
 				<Routes>
-					<Route exact path="/" element={<Home />} />
+					<Route exact path="/risk-register-app" element={<Home />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/view" element={<View />} />
 					<Route path="/dashboard" element={<Dashboard />} />
