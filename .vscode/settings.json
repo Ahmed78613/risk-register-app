@@ -1,3 +1,10 @@
 {
-	"cSpell.words": ["browserslist", "chartjs", "Cpath", "Csvg", "xmark"]
+	"cSpell.words": [
+		"browserslist",
+		"chartjs",
+		"Cpath",
+		"Csvg",
+		"predeploy",
+		"xmark"
+	]
 }
