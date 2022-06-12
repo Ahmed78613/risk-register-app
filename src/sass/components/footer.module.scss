@@ -1,0 +1,106 @@
+@import "../utilities/variables";
+@import "../utilities/mixins";
+
+.mainFooter {
+	position: relative;
+	background-color: $primary;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	padding: 1em 2em;
+	text-align: center;
+	border-top: 2px solid $dark;
+	box-shadow: $mainShadow;
+	a,
+	i,
+	p {
+		color: white;
+	}
+	.toTop {
+		background: none;
+		margin-bottom: 0.5em;
+		transition: $fast;
+		p {
+			font-size: 1rem;
+		}
+		i {
+			font-size: 20px;
+		}
+		&:hover {
+			margin-bottom: 1.5em;
+			color: #cecece;
+		}
+		&:hover i,
+		&:hover p {
+			color: black;
+		}
+	}
+	.links {
+		padding: 0.5em 0;
+		margin-bottom: 0.5em;
+
+		a {
+			padding: 0.5em 1em;
+			transition: $fast;
+			&:hover {
+				background-color: $dark;
+				padding: 0.5em 2em;
+			}
+		}
+		a:not(:last-child) {
+			border-right: 1px solid $secondary;
+		}
+	}
+	.socials {
+		margin-bottom: 1em;
+		i {
+			font-size: 40px;
+			margin: 0 0.2em;
+			cursor: pointer;
+			transition: $fast;
+			&:hover {
+				color: #000000;
+				padding: 0 0.2em;
+				border-left: 1px solid white;
+				border-right: 1px solid white;
+			}
+		}
+	}
+	p {
+		font-size: 0.7rem;
+		font-weight: $light;
+	}
+	.duck {
+		position: absolute;
+		top: 10%;
+		right: 5%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.mainFooter {
+		border-radius: 0;
+		.links {
+			a {
+				padding: 0.5em;
+				&:hover {
+					background-color: $dark;
+					padding: 0.5em;
+				}
+			}
+		}
+		.socials {
+			i {
+				font-size: 30px;
+				&:hover {
+					padding: unset;
+					border: none;
+				}
+			}
+		}
+
+		.duck {
+			font-size: 10px;
+			height: 30px;
+		}
+	}
+}

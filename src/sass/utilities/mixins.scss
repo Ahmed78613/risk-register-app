@@ -1,0 +1,18 @@
+@import "./variables.scss";
+
+// Flex center
+@mixin flexCenter($direction: row, $justify: center, $align: center) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+
+// Grid center
+@mixin gridCenter($justify: center, $align: center) {
+	display: grid;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// Dark Mode

@@ -1,0 +1,124 @@
+@import "./utilities/mixins";
+@import "./utilities/variables";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	font-family: "Poppins", sans-serif;
+}
+
+a,
+input,
+button,
+textarea,
+select {
+	text-decoration: none;
+	border: none;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	overflow-wrap: break-word;
+	font-weight: $bold;
+}
+
+h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: $header;
+	color: $primary;
+}
+
+h2 {
+	font-family: "Poppins", sans-serif;
+	font-weight: $regular;
+	font-size: $subHeading;
+	color: $primary;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+body {
+	background-color: #f0f0f0;
+	width: 90%;
+	max-width: 1400px;
+	margin: 2em auto;
+}
+
+@media screen and (max-width: 800px) {
+	body {
+		width: 100%;
+		margin: 0em auto;
+	}
+	h1 {
+		font-size: $mobileHeader;
+	}
+	p {
+		font-size: $mobileParagraph;
+	}
+}
+
+// Dark
+
+.darkBody {
+	background-color: #131313;
+}
+
+.lightBody {
+	background-color: white;
+}
+
+.dark {
+	background-color: #1d1d1d;
+	color: white;
+	.container {
+		background-color: #292929;
+		&:hover {
+			background-color: #313131;
+		}
+	}
+	input,
+	textarea,
+	select,
+	button {
+		background-color: #292929;
+		color: white;
+		&:focus,
+		&:hover {
+			background-color: #313131;
+		}
+	}
+}
+
+.light {
+	background-color: rgb(236, 236, 236);
+	color: $grey;
+	.container {
+		background-color: rgb(255, 255, 255);
+		&:hover {
+			background-color: rgb(245, 246, 255);
+		}
+	}
+	input,
+	textarea,
+	select,
+	button {
+		background-color: white;
+		&:focus,
+		&:hover {
+			background-color: rgb(228, 228, 228);
+		}
+	}
+}

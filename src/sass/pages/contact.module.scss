@@ -1,0 +1,123 @@
+@import "../utilities/variables";
+@import "../utilities/mixins";
+
+// Form
+.contact {
+	border-radius: 6px;
+	padding: 2em;
+	text-align: center;
+	box-shadow: $mainShadow;
+}
+
+@media screen and (max-width: 800px) {
+	.contact {
+		text-align: left;
+	}
+}
+
+// Contact Form
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	h1 {
+		font-size: $header;
+	}
+	p {
+		padding: 1.5em 0em 1em;
+	}
+	.contactForm {
+		@include gridCenter(start);
+		grid-template-columns: 1fr 1fr;
+		border-radius: 6px;
+		grid-gap: 10px;
+		max-width: 800px;
+		margin: 0 auto;
+		input,
+		textarea {
+			padding: 1em 2em;
+			width: 100%;
+			box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+			border-radius: 6px;
+			&::placeholder {
+				color: $primary;
+				opacity: 0.6; /* Firefox */
+				font-weight: $bold;
+			}
+		}
+		input:nth-child(n + 3),
+		textarea {
+			grid-column: span 2;
+		}
+		textarea {
+			height: 30vh;
+		}
+		input:last-child {
+			color: white;
+			background-color: $primary;
+			font-weight: bold;
+			font-size: $paragraph;
+			transition: $fast;
+			border: 3px solid transparent;
+			&:hover,
+			&:focus {
+				background-color: $dark;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.container {
+		h1 {
+			font-size: $mobileHeader;
+		}
+		p {
+			padding: 0 0 1em;
+			font-size: $mobileParagraph;
+		}
+		.contactForm {
+			@include gridCenter(start);
+			input,
+			textarea {
+				padding: 1em;
+				grid-column: span 2;
+			}
+		}
+	}
+}
+
+// Socials
+
+.socials {
+	@include gridCenter();
+	grid-template-columns: 1fr 1fr;
+	margin-top: 1em;
+	grid-gap: 10px;
+	button {
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+		padding: 1em 1em;
+		border-radius: 6px;
+		transition: $fast;
+		i {
+			font-size: 42px;
+			transition: $fast;
+		}
+		&:hover {
+			background-color: $primary;
+			i {
+				padding-right: 90%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.socials {
+		button {
+			i {
+				font-size: 32px;
+			}
+		}
+	}
+}

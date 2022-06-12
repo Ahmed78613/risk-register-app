@@ -1,0 +1,335 @@
+@import "../utilities/variables";
+@import "../utilities/mixins";
+
+.home {
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	padding-bottom: 3em;
+	box-shadow: $mainShadow;
+	overflow: hidden;
+}
+
+// Banner
+.banner {
+	padding: 4em 2em 8em;
+	position: relative;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	.left {
+		width: 90%;
+		h1 {
+			margin-bottom: 1em;
+		}
+		p {
+			font-size: $paragraph;
+		}
+		a {
+			background-color: $primary;
+			color: white;
+			display: inline-block;
+			padding: 0.5em 2em;
+			margin-top: 2em;
+			border-radius: 6px;
+			font-weight: $regular;
+			font-size: $paragraph;
+			transition: $fast;
+			&:hover {
+				background-color: $dark;
+				padding: 0.5em 2.5em;
+			}
+		}
+	}
+	.riskImg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 50%;
+		bottom: 0;
+		border-bottom-left-radius: 50%;
+		background-color: $primary;
+		background-blend-mode: multiply;
+		background-image: url("../../images/risk-banner.jpg");
+		background-size: cover;
+		background-position: center;
+		box-shadow: -10px 0 0 rgb(51, 94, 206, 0.3);
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.home {
+		.banner {
+			display: grid;
+			padding: 0em;
+			grid-template-columns: 70% 30%;
+
+			.left {
+				width: 100%;
+				padding: 1em 2em;
+				h1 {
+					font-size: $mobileHeader;
+				}
+				p {
+					font-size: $mobileParagraph;
+				}
+				a {
+					margin-top: 1em;
+					font-size: $mobileParagraph;
+				}
+			}
+			.riskImg {
+				position: unset;
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+// 4 Features Section
+
+.features {
+	padding: 2em;
+	text-align: center;
+	h2 {
+		grid-column: span 4;
+		margin-bottom: 1em;
+	}
+	.featuresContainer {
+		@include gridCenter();
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 1fr; // make all same height
+		border-radius: 16px;
+		box-shadow: $lightBlack;
+		.item {
+			position: relative;
+			padding: 2.5em 1em 1em;
+			height: 100%;
+			transition: $fast;
+			.number {
+				@include flexCenter();
+				position: absolute;
+				top: -25px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 55px;
+				height: 55px;
+				background-color: $primary;
+				border-radius: 50%;
+				font-size: 1.5rem;
+				color: white;
+				transition: $fast;
+			}
+			p {
+				margin-top: 1em;
+			}
+			&:hover {
+				background-color: $primary;
+				.number {
+					border: 1px solid white;
+					top: -35px;
+				}
+				h4 {
+					display: inline;
+					color: white;
+					border-top: 1px solid white;
+				}
+				p {
+					color: $lightBlue;
+				}
+			}
+			&:hover:first-child {
+				border-top-left-radius: 16px;
+				border-bottom-left-radius: 16px;
+			}
+			&:hover:last-child {
+				border-top-right-radius: 16px;
+				border-bottom-right-radius: 16px;
+			}
+		}
+		.item:not(:last-child) {
+			border-right: 2px solid $primary;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.features {
+		padding: 1em;
+		text-align: center;
+		h2 {
+			font-size: $mobileHeader;
+			margin-bottom: 2em;
+		}
+		.featuresContainer {
+			grid-template-columns: 1fr 1fr;
+			.item {
+				padding: 2.5em 1em;
+				&:hover:first-child {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
+				&:hover:last-child {
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+			}
+			.item:not(:last-child) {
+				border-right: none;
+			}
+		}
+	}
+}
+
+// Illustration Section
+
+.illustration {
+	position: relative;
+	@include gridCenter();
+	grid-template-columns: 40% 40% 20%;
+	padding: 1em 3em;
+	background-color: $primary;
+	p {
+		font-size: $header;
+		color: white;
+		width: 100%;
+		padding-bottom: 3em;
+	}
+	.graphic {
+		padding: 1em 3em 1em 0em;
+		img {
+			width: 100%;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 80%;
+			background-color: #335ece;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 80 80'%3E%3Cg fill='%23ececec' fill-opacity='1'%3E%3Cpath fill-rule='evenodd' d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E");
+			background-position: top left;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.illustration {
+		position: relative;
+		padding: 2em 0em 1em 2em;
+		grid-template-columns: 60% 40%;
+		margin-top: 1em;
+		p {
+			font-size: $mobileHeader;
+			width: 100%;
+		}
+		.graphic {
+			padding: 0;
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+// Plan & Mitigate Section
+
+.plan {
+	@include gridCenter();
+	grid-template-columns: 40% auto;
+	.imgContainer {
+		height: 150%;
+		margin: 0 2em;
+		z-index: 1;
+		border-radius: 16px;
+		border: 4px solid $secondary;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.content {
+		padding: 2em;
+
+		h2 {
+			margin-bottom: 1em;
+		}
+		p {
+			font-size: $paragraph;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.plan {
+		grid-template-columns: 50% auto;
+		.imgContainer {
+			height: 130%;
+			margin: 0 1em;
+		}
+		.content {
+			padding: 1em 0;
+			h2 {
+				font-size: $mobileHeader;
+			}
+			p {
+				font-size: $mobileParagraph;
+			}
+		}
+	}
+}
+
+// No need to juggle Section
+
+.juggle {
+	@include gridCenter;
+	grid-template-columns: 1fr 1fr;
+	.left {
+		@include gridCenter;
+		grid-template-columns: 1fr 1fr;
+		background-color: $primary;
+		border-top-right-radius: 50px;
+		border-bottom-right-radius: 50px;
+		height: 100%;
+		padding: 6.5em 2em 2em 2em;
+
+		h2 {
+			grid-column: span 2;
+			color: white;
+			text-align: center;
+			font-weight: $regular;
+			margin-bottom: 0.5em;
+		}
+		ul {
+			font-weight: $light;
+			color: white;
+			margin: 0 auto;
+			font-size: $paragraph;
+		}
+	}
+	img {
+		width: 75%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.juggle {
+		grid-template-columns: 1fr;
+		.left {
+			border-top-right-radius: 50px;
+			border-bottom-right-radius: 50px;
+			padding: 5em 2em 2em;
+			h2 {
+				font-size: $mobileHeader;
+			}
+			ul {
+				font-size: $mobileParagraph;
+			}
+		}
+		img {
+			margin-top: 2em;
+		}
+	}
+}

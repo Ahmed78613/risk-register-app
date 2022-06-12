@@ -1,0 +1,319 @@
+@import "../utilities/variables";
+@import "../utilities/mixins";
+
+// View
+
+.view {
+	padding: 1em 2em;
+	border-radius: 6px;
+	box-shadow: $mainShadow;
+}
+
+@media screen and (max-width: 700px) {
+	.view {
+		padding: 1em;
+	}
+}
+
+.topStats {
+	@include gridCenter();
+	grid-template-columns: 60% 40%;
+	.statsLeft {
+		@include flexCenter();
+		.stat {
+			@include flexCenter(column, flex-start, center);
+			text-align: center;
+			margin: 0em 1.5em;
+			height: 100%;
+			.circle {
+				@include flexCenter();
+				border: 8px solid black;
+				width: 20vw;
+				height: 20vw;
+				max-width: 180px;
+				max-height: 180px;
+				border-radius: 50%;
+				font-size: $subHeading;
+				font-weight: $bold;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			}
+			h3 {
+				margin-top: 1em;
+				font-weight: $regular;
+
+				font-size: $paragraph;
+			}
+		}
+	}
+	.statsRight {
+		height: 100%;
+		@include flexCenter(column, center, flex-start);
+		.rightTop {
+			@include flexCenter(row, space-between, center);
+			width: 100%;
+
+			h1 {
+				font-size: $header;
+			}
+			a {
+				@include flexCenter();
+				background-color: $primary;
+				padding: 0.5em 3em;
+				color: white;
+				border-radius: 6px;
+				font-weight: $regular;
+				font-size: $paragraph;
+				transition: $fast;
+				&:hover {
+					background-color: $dark;
+				}
+			}
+		}
+		.rightBottom {
+			width: 100%;
+			.bottomStat {
+				margin: 0.5em 0em;
+				padding: 1em 2em 1em 1em;
+				text-align: left;
+				font-size: $paragraph;
+				width: 100%;
+				border-radius: 6px;
+				box-shadow: $lightBlack;
+				span {
+					padding-left: 0.5em;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.topStats {
+		grid-template-columns: 100%;
+		.statsLeft {
+			grid-row-start: 2;
+		}
+		.statsRight {
+			margin-bottom: 1em;
+		}
+		.statsRight {
+			.rightTop {
+				margin-bottom: 0.5em;
+				h1 {
+					font-size: $mobileHeader;
+				}
+				a {
+					@include flexCenter();
+					padding: 0.5em 2em;
+					font-size: $mobileParagraph;
+				}
+			}
+			.rightBottom {
+				.bottomStat {
+					margin: 0.5em 0em;
+					padding: 1em;
+					font-size: $mobileParagraph;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.topStats {
+		.statsLeft {
+			@include gridCenter();
+			grid-template-columns: 1fr 1fr 1fr;
+			.stat {
+				margin: 0em;
+				font-size: 0.1rem;
+				.circle {
+					font-size: $mobileHeader;
+					font-size: 0.8rem;
+				}
+				h3 {
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
+}
+
+// Database
+.database {
+	position: relative;
+	box-shadow: $lightBlack;
+	border-radius: 6px;
+	padding: 1em 2.5em;
+	margin-top: 2em;
+	overflow-y: auto;
+	max-height: 50vh;
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+	}
+	&::-webkit-scrollbar-thumb {
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		background: $dark;
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+	}
+	.labels {
+		@include gridCenter();
+		margin-bottom: 0.5em;
+		grid-template-columns: 10% 25% 25% 10% 10% 10% 10%;
+		:nth-child(n + 4) {
+			text-align: center;
+		}
+	}
+	.data {
+		.dataItem {
+			@include gridCenter();
+			grid-template-columns: 10% 25% 25% 10% 10% 10% 10%;
+			box-shadow: $lightBlack;
+			border-radius: 6px;
+			z-index: 100;
+			transition: $fast;
+			&:hover {
+				padding: 0 0.25em;
+			}
+			.remove {
+				position: absolute;
+				left: 5px;
+				z-index: 100;
+				font-size: 28px;
+				background-color: transparent;
+				color: $riskHigh;
+				text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+				transition: $fast;
+				&:hover {
+					color: rgb(214, 26, 26);
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+					animation: removeJiggle 3s infinite linear;
+				}
+			}
+			input,
+			select,
+			textarea {
+				height: 80px;
+				background-color: $primary;
+				color: white;
+				border: 1px solid white;
+				padding: 1em 0.5em;
+				font-size: 1rem;
+				transition: $fast;
+				&:hover,
+				&:focus {
+					background-color: $dark;
+					border: 1px solid black;
+				}
+			}
+			textarea {
+				resize: none;
+				padding: 1em 0.5em;
+				font-size: 0.8rem;
+			}
+			input:last-of-type,
+			select:nth-child(n + 4) {
+				font-weight: $bold;
+				text-align: center;
+			}
+			input:last-of-type {
+				font-weight: $regular;
+			}
+			input:first-of-type {
+				border-top-left-radius: 6px;
+				border-bottom-left-radius: 6px;
+			}
+			select:last-of-type {
+				border-top-right-radius: 6px;
+				border-bottom-right-radius: 6px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.database {
+		padding: 1em 0.5em 1em 2.5em;
+		.labels {
+			font-size: 0.7rem;
+			grid-template-columns: 12% 20% 20% 12% 12% 12% 12%;
+		}
+		.data {
+			.dataItem {
+				grid-template-columns: 12% 20% 20% 12% 12% 12% 12%;
+
+				input,
+				select,
+				textarea {
+					font-size: 0.7rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.database {
+		padding: 1em 1.5em 1em 1.5em;
+		.labels {
+			@include gridCenter();
+			font-size: 0.7rem;
+			grid-template-columns: 1fr 1fr 1fr;
+			border-radius: 20px;
+			overflow: hidden;
+			border: 2px solid $primary;
+
+			h4:nth-child(-n + 4) {
+				grid-column: span 3;
+				text-align: center;
+				border-bottom: 1px solid white;
+			}
+			h4:nth-child(n + 6) {
+				border-left: 1px solid white;
+			}
+			h4 {
+				padding: 0.5em 0;
+				background-color: $lightBlue;
+			}
+		}
+		.data {
+			.dataItem {
+				grid-template-columns: 1fr 1fr 1fr;
+				margin: 1em;
+				background-color: rgb(255, 255, 255);
+				border-radius: 20px;
+				overflow: hidden;
+			}
+			textarea,
+			input {
+				grid-column: span 3;
+			}
+		}
+	}
+}
+
+// Animations
+
+@keyframes removeJiggle {
+	0% {
+		transform: translate(0%);
+	}
+	35% {
+		transform: translate(-10%);
+	}
+	70% {
+		transform: translate(10%);
+	}
+	100% {
+		transform: translate(0%);
+	}
+}

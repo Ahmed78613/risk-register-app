@@ -1,0 +1,146 @@
+@import "../utilities/variables";
+@import "../utilities/mixins";
+
+.navbar {
+	@include flexCenter(row, space-between);
+	background-color: $primary;
+	padding: 0 2em;
+	margin-bottom: 1em;
+	color: white;
+	border-radius: 6px;
+	height: 60px;
+	box-shadow: $mainShadow;
+	.logo {
+		font-family: "Audiowide", cursive;
+		letter-spacing: 2px;
+		color: white;
+		font-weight: $bold;
+		font-size: 1.5rem;
+		padding: 0.5em;
+		transition: $fast;
+		&:hover {
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			color: black !important;
+		}
+	}
+	.right {
+		@include flexCenter();
+		height: 100%;
+		a {
+			@include flexCenter();
+			color: white;
+			padding: 1em 2em;
+			height: 100%;
+			transition: $fast;
+			&:hover:not(.logo) {
+				background-color: $dark;
+				padding: 1em 2.5em;
+				color: rgba(255, 255, 255, 0.8);
+				text-shadow: 2px 2px 4px black;
+			}
+		}
+		button {
+			@include flexCenter(row, flex-start);
+			position: relative;
+			background-color: white;
+			border-radius: 8px;
+			width: 40px;
+			height: 15px;
+			transition: $fast;
+			i {
+				left: 0;
+				position: absolute;
+				font-size: 24px;
+				color: white;
+				text-shadow: 0 0 12px rgb(0, 0, 0);
+			}
+		}
+	}
+	.menu {
+		display: none;
+		cursor: pointer;
+		.bar {
+			display: block;
+			width: 25px;
+			margin: 5px auto;
+			height: 3px;
+			background-color: white;
+			-webkit-transition: all $fast;
+			transition: all $fast;
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	body {
+		.navbar {
+			padding: 0em 2em 0 0;
+			position: relative;
+			border-radius: 0;
+			margin-bottom: 0;
+			.menu {
+				display: block;
+				cursor: pointer;
+				.bar {
+					display: block;
+					width: 25px;
+					margin: 5px auto;
+					height: 3px;
+					background-color: white;
+					-webkit-transition: all $fast;
+					transition: all $fast;
+				}
+				&:hover {
+					.bar {
+						background-color: black;
+					}
+					:nth-child(2) {
+						width: 15px;
+						opacity: 0.5;
+					}
+				}
+			}
+			.right,
+			.rightActive {
+				@include flexCenter(column, flex-start, flex-start);
+				position: fixed;
+				top: 60px;
+				right: -100%;
+				bottom: 0;
+				background-color: $dark;
+				z-index: 10;
+				height: auto;
+				transition: all $fast;
+
+				a {
+					@include flexCenter(row, flex-start);
+					color: white;
+					height: auto;
+					padding: 1em 4em 1em 2em;
+					width: 100%;
+					&:hover {
+						padding: 1em 4em 1em 2em !important;
+						color: white;
+						background-color: #243d7c;
+					}
+				}
+				button {
+					position: relative;
+					@include flexCenter();
+					padding: 0.5em 0em;
+					width: 80%;
+					background-color: rgb(255, 255, 255) !important;
+					margin: 0 auto;
+					border-radius: 8px;
+					i {
+						position: absolute;
+					}
+				}
+				z-index: 10;
+			}
+			.rightActive {
+				right: 0;
+			}
+		}
+	}
+}
