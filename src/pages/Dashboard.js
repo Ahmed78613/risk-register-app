@@ -150,10 +150,10 @@ function Dashboard() {
 					</div>
 
 					<p>
-						Use our risk register based methodology for your risk management
-						needs. Fulfill regulatory compliance acting as a repository for all
-						risks identified and includes additional information about each
-						risk.
+						Use our risk register, a risk management-based methodology for your
+						risk management needs. Fulfil regulatory compliance by acting as a
+						repository for all risks identified and including additional
+						information about each risk.
 					</p>
 				</div>
 			</div>

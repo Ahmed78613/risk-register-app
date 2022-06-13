@@ -20,7 +20,7 @@ function Home() {
 							For Free.
 						</h1>
 						<p>
-							A free to use risk and project management made to fit you and your
+							A free-to-use risk and project management made to fit you and your
 							teams needs. <br /> <br />
 							Identify potential risks that may exist in your projects and
 							manege them with the use of our risk register. Never get surprised
@@ -65,7 +65,7 @@ function Home() {
 							<h3 className={styles.number}>4</h3>
 							<h4>Relax</h4>
 							<p>
-								Sit back and relax. You wont have a risk creep up on you ever
+								Sit back and relax. You won't have a risk creep up on you ever
 								again!
 							</p>
 						</div>
