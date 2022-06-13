@@ -168,7 +168,7 @@
 	.labels {
 		@include gridCenter();
 		margin-bottom: 0.5em;
-		grid-template-columns: 10% 25% 25% 10% 10% 10% 10%;
+		grid-template-columns: 14% 23% 23% 10% 10% 10% 10%;
 		:nth-child(n + 4) {
 			text-align: center;
 		}
@@ -176,7 +176,7 @@
 	.data {
 		.dataItem {
 			@include gridCenter();
-			grid-template-columns: 10% 25% 25% 10% 10% 10% 10%;
+			grid-template-columns: 14% 23% 23% 10% 10% 10% 10%;
 			box-shadow: $lightBlack;
 			border-radius: 6px;
 			z-index: 100;
@@ -207,7 +207,7 @@
 				color: white;
 				border: 1px solid white;
 				padding: 1em 0.5em;
-				font-size: 1rem;
+				font-size: 0.8rem;
 				transition: $fast;
 				&:hover,
 				&:focus {

@@ -72,7 +72,7 @@ body {
 
 // Dark & Light Mode
 .darkBody {
-	background-color: #131313;
+	background-color: rgb(17, 17, 17);
 }
 
 .lightBody {
@@ -80,7 +80,7 @@ body {
 }
 
 .dark {
-	background-color: #1d1d1d;
+	background-color: #1b1b1b;
 	color: white;
 	.container {
 		background-color: #292929;
@@ -115,7 +115,6 @@ body {
 	select,
 	button {
 		background-color: white;
-		box-shadow: 1px 1px 6px #335fce6b;
 		&:focus,
 		&:hover {
 			background-color: rgb(228, 228, 228);
