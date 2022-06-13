@@ -114,7 +114,7 @@ body {
 	textarea,
 	select,
 	button {
-		background-color: white;
+		box-shadow: 1px 2px 6px #335fce8e;
 		&:focus,
 		&:hover {
 			background-color: rgb(228, 228, 228);
