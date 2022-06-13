@@ -156,7 +156,7 @@
 // Remove Popup
 .popup .popupContainer {
 	padding-bottom: 2em;
-	overflow: visible;
+	overflow-y: visible !important;
 	p {
 		width: 50%;
 	}
@@ -200,7 +200,7 @@
 
 // Modify popup {
 .popup .popupContainer {
-	overflow-y: auto;
+	overflow-y: visible !important;
 	h1,
 	p {
 		text-align: center;
@@ -312,6 +312,7 @@
 
 // Prioritize popup
 .popup .popupContainer {
+	overflow-y: visible !important;
 	.priorityLabels {
 		@include gridCenter();
 		text-align: center;

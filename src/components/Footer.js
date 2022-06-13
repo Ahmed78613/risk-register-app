@@ -17,7 +17,7 @@ function Footer() {
 			</button>
 
 			<div className={styles.links}>
-				<Link to="/">Home</Link>
+				<Link to="/risk-register-app">Home</Link>
 				<Link to="/dashboard">Dashboard</Link>
 				<Link to="/contact">Contact</Link>
 			</div>
