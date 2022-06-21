@@ -27,7 +27,9 @@ const Remove = ({ removeView }) => {
 
 	return (
 		<div className={styles.popup}>
-			<div className={`${styles.popupContainer} ${darkMode}`}>
+			<div
+				className={`${styles.popupContainer} ${darkMode} ${styles.allowOverflow}`}
+			>
 				<i
 					className={`fa-solid fa-xmark ${styles.closeBtn}`}
 					onClick={removeView}

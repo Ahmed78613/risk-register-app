@@ -1,6 +1,11 @@
 @import "../utilities/variables.scss";
 @import "../utilities/mixins";
 
+// Overflow
+.allowOverflow {
+	overflow: visible !important;
+}
+
 // Popup (Container)
 .popup {
 	@include flexCenter();
@@ -154,230 +159,198 @@
 }
 
 // Remove Popup
-.popup .popupContainer {
-	padding-bottom: 2em;
-	overflow-y: visible !important;
-	p {
-		width: 50%;
+.removeForm {
+	@include flexCenter(row, flex-start, center);
+	padding: 2em 0em 0em;
+	label {
+		margin-right: 0.5em;
+		font-weight: $bold;
 	}
-	.removeForm {
-		@include flexCenter(row, flex-start, center);
-		padding: 2em 0em 0em;
-		label {
-			margin-right: 0.5em;
-			font-weight: $bold;
-		}
-		.dropdown {
-			width: 280px;
-			margin-right: auto;
-		}
-		input {
-			width: 140px;
-			height: 100%;
-			&:first-of-type {
-				margin: 0 0.5em;
-			}
+	.dropdown {
+		width: 280px;
+		margin-right: auto;
+	}
+	input {
+		width: 140px;
+		height: 100%;
+		&:first-of-type {
+			margin: 0 0.5em;
 		}
 	}
 }
 
 @media screen and (max-width: 800px) {
-	.popup .popupContainer {
-		p {
-			font-size: $mobileParagraph;
-		}
-		.removeForm {
-			@include flexCenter(column, center, flex-start);
-			padding: 0em;
-			.dropdown,
-			input {
-				margin: 0.5em 0;
-				width: 100%;
+	.removeForm {
+		@include flexCenter(column, center, flex-start);
+		padding: 0em;
+		.dropdown,
+		input {
+			margin: 0.5em 0;
+			width: 100%;
+			&:first-of-type {
+				margin: unset;
+				margin-top: 1em;
 			}
 		}
 	}
 }
 
 // Modify popup {
-.popup .popupContainer {
-	overflow-y: visible !important;
-	h1,
-	p {
-		text-align: center;
+.modifyForm {
+	label {
+		font-weight: $bold;
 	}
-	p {
-		margin: 0 auto 1em;
+	.existing {
+		@include gridCenter();
+		grid-template-columns: 1fr 1fr;
+	}
+	select {
+		width: 90%;
+	}
+	.viewAllBtn {
+		@include flexCenter();
+		color: white;
+		font-weight: $bold;
+		width: 180px;
+		background-color: $primary;
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+		border-radius: 16px;
+		padding: 0.5em 1em;
+		transition: $fast;
+		margin-left: auto;
+		&:hover,
+		&:focus {
+			background-color: $dark;
+			color: white;
+		}
+	}
+}
+hr {
+	margin: 1em 0;
+	border: 1px solid $primary;
+	border-radius: 10px;
+}
+.modifyBottom {
+	@include gridCenter(start, start);
+	grid-template-columns: 1fr 1fr;
+	h2 {
+		grid-column: span 2;
+	}
+	.modifyLeft,
+	.modifyRight {
+		@include flexCenter(column, flex-start, flex-start);
+		height: 100%;
 		width: 100%;
 	}
-	.modifyForm {
-		label {
-			font-weight: $bold;
-		}
-		.existing {
-			@include gridCenter();
-			grid-template-columns: 1fr 1fr;
-		}
-		select {
-			width: 90%;
-		}
-		.viewAllBtn {
-			@include flexCenter();
-			color: white;
-			font-weight: $bold;
-			width: 180px;
-			background-color: $primary;
-			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-			border-radius: 16px;
-			padding: 0.5em 1em;
-			transition: $fast;
-			margin-left: auto;
-			&:hover,
-			&:focus {
-				background-color: $dark;
-				color: white;
-			}
-		}
+	.modifyRight {
+		margin-left: 10%;
 	}
-	hr {
-		margin: 1em 0;
-		border: 1px solid $primary;
-		border-radius: 10px;
+	input,
+	textarea,
+	select {
+		width: 90%;
+		margin-bottom: 1em;
 	}
-	.modifyBottom {
-		@include gridCenter(start, start);
-		grid-template-columns: 1fr 1fr;
-		h2 {
-			grid-column: span 2;
-		}
-		.modifyLeft,
-		.modifyRight {
-			@include flexCenter(column, flex-start, flex-start);
-			height: 100%;
-			width: 100%;
-		}
-		.modifyRight {
-			margin-left: 10%;
-		}
-		input,
-		textarea,
-		select {
-			width: 90%;
-			margin-bottom: 1em;
-		}
-		textarea {
-			height: 100px;
-		}
-		.doneBtn {
-			background-color: $primary;
-			&:hover {
-				background-color: $dark;
-			}
+	textarea {
+		height: 100px;
+	}
+	.doneBtn {
+		background-color: $primary;
+		&:hover {
+			background-color: $dark;
 		}
 	}
 }
 
 @media screen and (max-width: 800px) {
-	.popup .popupContainer {
-		h1,
-		p {
-			text-align: left;
+	.modifyForm {
+		.existing {
+			grid-template-columns: 1fr;
 		}
-		.modifyForm {
-			.existing {
-				grid-template-columns: 1fr;
-			}
-			.viewAllBtn {
-				width: 100%;
-				padding: 0.25em;
-				margin: 0.5em 0;
-				border: 1px solid $primary;
-			}
+		.viewAllBtn {
+			width: 100%;
+			padding: 0.25em;
+			margin: 0.5em 0;
+			border: 1px solid $primary;
 		}
-		.modifyBottom {
-			.modifyLeft,
-			.modifyRight {
-				grid-column: span 2;
-				margin: 0;
-				width: 100% !important;
-			}
-			input,
-			textarea,
-			select {
-				width: 100%;
-				margin-bottom: 1em;
-			}
+	}
+	.modifyBottom {
+		.modifyLeft,
+		.modifyRight {
+			grid-column: span 2;
+			margin: 0;
+			width: 100% !important;
+		}
+		input,
+		textarea,
+		select {
+			width: 100%;
+			margin-bottom: 1em;
 		}
 	}
 }
 
 // Prioritize popup
-.popup .popupContainer {
-	overflow-y: visible !important;
-	.priorityLabels {
+.priorityLabels {
+	@include gridCenter();
+	text-align: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	h3:first-child {
+		text-align: left;
+	}
+}
+.priorityContainer {
+	.priorityItem {
 		@include gridCenter();
 		text-align: center;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
+		margin: 0.5em 0;
+		border: 1px solid $primary;
+		border-radius: 6px;
+		background-color: rgba(51, 94, 206, 0.77);
+		cursor: pointer;
+		h3 {
+			color: white;
+			padding: 0.25em 0.5em;
+			font-size: 1rem;
+			font-weight: $regular;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		h3:not(:last-child) {
+			border-right: 1px solid white;
+		}
 		h3:first-child {
 			text-align: left;
 		}
 	}
-	.priorityContainer {
-		.priorityItem {
-			@include gridCenter();
+}
+
+@media screen and (max-width: 800px) {
+	.priorityLabels {
+		font-size: 0.7rem;
+		font-weight: $regular;
+		grid-template-columns: 1fr 1fr;
+
+		h3:first-child {
 			text-align: center;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-			margin: 0.5em 0;
-			border: 1px solid $primary;
-			border-radius: 6px;
-			background-color: rgba(51, 94, 206, 0.77);
-			cursor: pointer;
-			h3 {
-				color: white;
-				padding: 0.25em 0.5em;
-				font-size: 1rem;
-				font-weight: $regular;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-			h3:not(:last-child) {
-				border-right: 1px solid white;
-			}
-			h3:first-child {
-				text-align: left;
-			}
 		}
 	}
-}
-@media screen and (max-width: 800px) {
-	.popup .popupContainer {
-		h1 {
-			width: 50%;
-		}
-		.priorityLabels {
-			font-size: 0.7rem;
-			font-weight: $regular;
+	.priorityContainer {
+		.priorityItem {
 			grid-template-columns: 1fr 1fr;
-
+			border: 1px solid $dark;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+			h3 {
+				font-size: 0.7rem;
+				font-weight: $light;
+			}
+			h3:not(:last-child) {
+				border-right: unset;
+			}
 			h3:first-child {
 				text-align: center;
-			}
-		}
-		.priorityContainer {
-			.priorityItem {
-				grid-template-columns: 1fr 1fr;
-				border: 1px solid $dark;
-				box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-				h3 {
-					font-size: 0.7rem;
-					font-weight: $light;
-				}
-				h3:not(:last-child) {
-					border-right: unset;
-				}
-				h3:first-child {
-					text-align: center;
-				}
 			}
 		}
 	}

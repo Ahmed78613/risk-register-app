@@ -46,7 +46,6 @@ const Modify = ({ modifyView }) => {
 						<form
 							className={styles.modifyForm}
 							onSubmit={(e) => {
-								// removeRisk(e, modifyId);
 								modifyView();
 							}}
 						>
