@@ -1,23 +1,23 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import styles from "../sass/components/navbar.module.scss";
-import DarkModeContext from "../context/DarkModeContext";
+import React, { useState, useContext } from "react"
+import { Link } from "react-router-dom"
+import styles from "../sass/components/navbar.module.scss"
+import DarkModeContext from "../context/DarkModeContext"
 
 function Navbar() {
-	const { darkMode, changeDarkMode } = useContext(DarkModeContext);
-	const [navOpen, setNavOpen] = useState(false);
-	const [width, setWidth] = useState(false);
+	const { darkMode, changeDarkMode } = useContext(DarkModeContext)
+	const [navOpen, setNavOpen] = useState(false)
+	const [width, setWidth] = useState(false)
 
 	// Open/Close Nav
 	const updateNav = () => {
-		setNavOpen((prevState) => !prevState);
-	};
+		setNavOpen((prevState) => !prevState)
+	}
 
 	window.addEventListener("resize", () => {
-		setWidth(window.innerWidth);
+		setWidth(window.innerWidth)
 		// Close navbar if width > 768px
-		width > 768 && setNavOpen(false);
-	});
+		width > 768 && setNavOpen(false)
+	})
 
 	// Dark Mode Icon Toggle Between
 	const light = {
@@ -27,7 +27,7 @@ function Navbar() {
 		fontSize: "24px",
 		color: "white",
 		textShadow: "0 0 12px black",
-	};
+	}
 
 	const dark = {
 		left: "unset",
@@ -36,7 +36,7 @@ function Navbar() {
 		fontSize: "24px",
 		color: "#363636",
 		textShadow: "0 0 12px black",
-	};
+	}
 
 	return (
 		<nav className={styles.navbar}>
@@ -62,7 +62,7 @@ function Navbar() {
 				<span className={styles.bar}></span>
 			</div>
 		</nav>
-	);
+	)
 }
 
-export default Navbar;
+export default Navbar
