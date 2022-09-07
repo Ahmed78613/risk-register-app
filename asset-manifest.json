@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/risk-register-app/static/css/main.63779958.css",
-    "main.js": "/risk-register-app/static/js/main.1c948f14.js",
+    "main.css": "/risk-register-app/static/css/main.1f8a3ffb.css",
+    "main.js": "/risk-register-app/static/js/main.352a17fd.js",
     "static/media/risk-banner.jpg": "/risk-register-app/static/media/risk-banner.f9be67cf5eec25d764f0.jpg",
     "static/media/plan-mitigate.jpg": "/risk-register-app/static/media/plan-mitigate.f8858e0cbabefedb9214.jpg",
     "static/media/juggle.svg": "/risk-register-app/static/media/juggle.5f35903d336216ff1bb61a61804af62f.svg",
     "static/media/illustration-1.svg": "/risk-register-app/static/media/illustration-1.6d856489e46b64901897454a8982dd7d.svg",
     "static/media/duck.svg": "/risk-register-app/static/media/duck.59f3dc7af47fdff18e4182a80a3ec622.svg",
     "index.html": "/risk-register-app/index.html",
-    "main.63779958.css.map": "/risk-register-app/static/css/main.63779958.css.map",
-    "main.1c948f14.js.map": "/risk-register-app/static/js/main.1c948f14.js.map"
+    "main.1f8a3ffb.css.map": "/risk-register-app/static/css/main.1f8a3ffb.css.map",
+    "main.352a17fd.js.map": "/risk-register-app/static/js/main.352a17fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.63779958.css",
-    "static/js/main.1c948f14.js"
+    "static/css/main.1f8a3ffb.css",
+    "static/js/main.352a17fd.js"
   ]
 }
